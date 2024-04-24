@@ -1,0 +1,193 @@
+//====================================================================================================
+
+//====================================================================================================
+.footer {
+    background: linear-gradient(270.00deg, rgb(40, 8, 8),rgb(142, 29, 28) 28.049%,rgb(40, 8, 8) 100%);
+    margin-top: toRem(35);
+    @include adaptiveValue("padding-top", 106, 20);
+    @include adaptiveValue("padding-bottom", 71, 10);
+  
+    // .footer__container
+
+    &__container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+    }
+    // .footer__logo
+
+    &__logo {
+        @media (max-width:$mobile){
+             width: 60%; 
+        }
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    // .footer__top
+
+    &__top {
+        position: relative;
+        z-index: 1;
+        
+       
+       
+    }
+
+    // .footer__content
+
+    &__content {
+        display: flex;
+        gap: toRem(20);
+        align-items: center;
+        flex-wrap: wrap; 
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 66, 20, 0 ,$maxWidthContainer, 991);
+        }
+       
+    }
+
+    // .footer__text
+
+    &__text {
+       
+        color: rgb(255, 255, 255);
+        font-family: "Kanit";
+        font-weight: 400;
+        line-height: 140%;
+        opacity: .2;
+       flex: 1 1 auto;
+        @media (min-width:toEm(1100)){
+            flex: 0 1 toRem(412);
+        }
+    }
+
+    // .footer__social
+
+    &__social {
+       
+        padding: toRem(50) 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: toRem(16);
+        position: relative;
+        @media (min-width:toEm(1270)){
+             top: toRem(-70);
+        }
+       
+        @media (max-width:$pc){
+            
+            padding: toRem(20) 0;
+        }
+        @media (max-width:$tablet){
+            justify-content: center; 
+        }
+       
+        
+    }
+
+    // .footer__link
+
+    &__link {
+        width: toRem(64);
+        padding: toRem(5);
+        background-color: #000;
+        border-radius: 50%;
+        box-shadow: toRem(3) toRem(5) toRem(3) toRem(0) #000;
+        transition: all 0.3s;
+        & img {
+            transition: all 0.3s;
+            padding: toRem(2);
+            background-color: #fff;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+        }
+        @media (max-width:$mobileSmall){
+            width: toRem(34); 
+        }
+        @media (any-hover: hover){
+            &:hover{
+                transform: translate(toRem(2));
+                box-shadow: 0 0 0 0 #000;
+                & img {
+                    transform: scale(1.15);
+                }
+            }
+        }
+    }
+
+    // .footer__images
+
+    //  @include adaptiveValue("padding-top", 106, 30);
+    // @include adaptiveValue("padding-bottom", 71, 20);
+
+    &__images {
+        position: absolute;
+        z-index: 2;
+        top: toRem(-150);
+        right: toRem(-150);
+        &::before{
+            content:'';
+            position: absolute;
+            width: toRem(891);
+            height: toRem(891);
+            top: 0;
+            left: 50%;
+            background: url('@img/footer/decor.svg') 0 0 no-repeat;
+            transform: translate(-50%);
+            opacity: .5;
+            z-index: 1;
+            animation:rotate 60s infinite linear;
+        }
+        & img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            filter: drop-shadow(toRem(-5) toRem(5) toRem(50) rgba(0, 0, 0, 0.712));
+            z-index: 3;
+           
+           
+        }
+        @media (max-width:toEm(1100)){
+        //     position: relative;
+           @include adaptiveValue("max-width", 188, 100);
+           @include adaptiveValue("top", -100, -50);
+            right: toRem(0);
+            
+                
+            
+             
+          
+        }
+        @keyframes rotate {
+            0% {
+                transform: translate(-50%) rotate(0deg) ;
+            }
+            100% {
+                transform: translate(-50%) rotate(360deg) ;
+            }
+        }
+    }
+    // .footer__copi
+    &__copi {
+        @include adaptiveValue("padding-top", 34, 15);
+        border-top: toRem(1) solid;
+        color: rgb(255, 255, 255);
+        font-family: "Kanit";
+        font-weight: 400;
+        line-height: 140%;
+        opacity: .2;
+        position: relative;
+        z-index: 1;
+
+       
+    }
+}
